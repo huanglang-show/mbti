@@ -14,3 +14,16 @@ CREATE TABLE `interface_info` (
   `isDelete` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否删除(0-未删, 1-已删)',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COMMENT='接口信息';
+
+CREATE TABLE `user_interface_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `userId` bigint(20) NOT NULL COMMENT '调用用户 id',
+  `interfaceInfoId` bigint(20) NOT NULL COMMENT '接口 id',
+  `totalNum` int(11) NOT NULL DEFAULT '0' COMMENT '总调用次数',
+  `leftNum` int(11) NOT NULL DEFAULT '0' COMMENT '剩余调用次数',
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT '0-正常，1-禁用',
+  `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `isDelete` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否删除(0-未删, 1-已删)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户调用接口关系';
