@@ -3,6 +3,7 @@ CREATE TABLE "public"."t2024" (
       "gender" text,
       "name" text,
       "app" varchar,
+      "url" text,
       "age" integer
 );
 
